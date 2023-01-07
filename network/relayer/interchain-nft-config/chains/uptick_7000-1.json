@@ -1,16 +1,17 @@
 {
   "type": "cosmos",
   "value": {
-    "key": "test-1",
-    "chain-id": "test-1",
-    "rpc-addr": "http://127.0.0.1:16657",
-    "account-prefix": "iaa",
+    "key": "uptick_7000-1",
+    "chain-id": "uptick_7000-1",
+    "rpc-addr": "http://127.0.0.1:26657",
+    "account-prefix": "uptick",
     "keyring-backend": "test",
     "gas-adjustment": 1.2,
-    "gas-prices": "0.0025uiris",
+    "gas-prices": "0.0025auptick",
     "debug": true,
     "timeout": "10s",
     "output-format": "json",
     "sign-mode": "direct"
   }
 }
+
