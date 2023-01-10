@@ -4,12 +4,12 @@ global:
     memo: ""
     light-cache-size: 20
 chains:
-    test-1:
+    iris-1:
         type: cosmos
         value:
-            key: test-1
-            chain-id: test-1
-            rpc-addr: http://127.0.0.1:16657
+            key: iris-1
+            chain-id: iris-1
+            rpc-addr: http://34.145.1.166:26657
             account-prefix: iaa
             keyring-backend: test
             gas-adjustment: 1.2
@@ -35,15 +35,11 @@ chains:
             output-format: json
             sign-mode: direct
 paths:
-    test1-nft-uptick_7000-1:
+    iris1-nft-uptick_7000-1:
         src:
-            chain-id: test-1
-            client-id: 07-tendermint-0
-            connection-id: connection-0
+            chain-id: iris-1
         dst:
             chain-id: uptick_7000-1
-            client-id: 07-tendermint-0
-            connection-id: connection-0
         src-channel-filter:
             rule: ""
             channel-list: []

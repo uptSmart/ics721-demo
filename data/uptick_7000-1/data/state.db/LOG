@@ -1,22 +1,8 @@
-=============== Jan 9, 2023 (CST) ===============
-17:48:55.059898 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
-17:48:55.140371 db@open opening
-17:48:55.141191 version@stat F·[] S·0B[] Sc·[]
-17:48:55.165530 db@janitor F·2 G·0
-17:48:55.165633 db@open done T·25.173566ms
-18:48:37.537351 memdb@flush N·3510 S·3MiB
-18:48:37.638287 memdb@flush created L0@3 N·3510 S·1MiB "abc..y:1,v6":"val..:99,v488"
-18:48:37.638419 version@stat F·[1] S·1MiB[1MiB] Sc·[0.25]
-18:48:37.664619 memdb@flush committed F·1 T·126.91855ms
-18:48:37.673909 journal@remove removed @1
-19:49:22.158210 memdb@flush N·3569 S·3MiB
-19:49:22.279232 memdb@flush created L0@5 N·3569 S·1MiB "abc..000,v5001":"val..999,v4988"
-19:49:22.279315 version@stat F·[2] S·2MiB[2MiB] Sc·[0.50]
-19:49:22.302099 memdb@flush committed F·1 T·143.647838ms
-19:49:22.316518 journal@remove removed @2
-19:50:21.528215 table@compaction L0·2 -> L1·0 S·2MiB Q·7135
-19:50:21.587549 table@build created L1@6 N·4251 S·962KiB "abc..y:1,v6":"val..999,v4988"
-19:50:21.587624 version@stat F·[0 1] S·962KiB[0B 962KiB] Sc·[0.00 0.01]
-19:50:21.602008 table@compaction committed F-1 S-1MiB Ke·0 D·2828 T·72.542351ms
-19:50:21.603270 table@remove removed @5
-19:50:21.607597 table@remove removed @3
+=============== Jan 10, 2023 (CST) ===============
+19:12:29.725096 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:12:29.769639 db@open opening
+19:12:29.771347 version@stat F·[] S·0B[] Sc·[]
+19:12:29.796928 db@janitor F·2 G·0
+19:12:29.797032 db@open done T·27.3123ms
+19:12:59.357767 db@close closing
+19:12:59.358282 db@close done T·512.853µs

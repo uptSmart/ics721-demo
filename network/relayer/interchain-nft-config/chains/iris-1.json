@@ -1,0 +1,17 @@
+{
+  "type": "cosmos",
+  "value": {
+    "key": "iris-1",
+    "chain-id": "iris-1",
+    "rpc-addr": "http://34.145.1.166:26657",
+    "account-prefix": "iaa",
+    "keyring-backend": "test",
+    "gas-adjustment": 1.2,
+    "gas-prices": "0.0025uiris",
+    "debug": true,
+    "timeout": "10s",
+    "output-format": "json",
+    "sign-mode": "direct"
+  }
+}
+

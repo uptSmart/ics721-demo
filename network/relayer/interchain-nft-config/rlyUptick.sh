@@ -18,24 +18,24 @@ echo "Initializing $BINARY..."
 $BINARY config init --home $CHAIN_DIR/$RELAYER_DIR
 
 echo "Adding configurations for both chains..."
-$BINARY chains add -f $PWD/network/relayer/interchain-nft-config/chains/test-1.json test-1 --home $CHAIN_DIR/$RELAYER_DIR
+$BINARY chains add -f $PWD/network/relayer/interchain-nft-config/chains/iris-1.json iris-1 --home $CHAIN_DIR/$RELAYER_DIR
 $BINARY chains add -f $PWD/network/relayer/interchain-nft-config/chains/uptick_7000-1.json uptick_7000-1 --home $CHAIN_DIR/$RELAYER_DIR
 
-$BINARY paths add test-1 uptick_7000-1 test1-nft-uptick_7000-1 -f \
-$PWD/network/relayer/interchain-nft-config/paths/test1-nft-uptick_7000-1.json \
+$BINARY paths add iris-1 uptick_7000-1 iris1-nft-uptick_7000-1 -f \
+$PWD/network/relayer/interchain-nft-config/paths/iris1-nft-uptick_7000-1.json \
 --home $CHAIN_DIR/$RELAYER_DIR
 
 echo "Restoring accounts..."
-$BINARY keys restore test-1 test-1 "$MNEMONIC_1" --home $CHAIN_DIR/$RELAYER_DIR
+$BINARY keys restore iris-1 iris-1 "$MNEMONIC_1" --home $CHAIN_DIR/$RELAYER_DIR
 $BINARY keys restore uptick_7000-1 uptick_7000-1 "$MNEMONIC_2" --home $CHAIN_DIR/$RELAYER_DIR --coin-type 60
 # $BINARY keys restore uptick_7000-1 uptick_7000-1 "$MNEMONIC_2" --home $CHAIN_DIR/$RELAYER_DIR
 
 echo "Linking both chains and starting to listen relayer"
-$BINARY transact link test1-nft-uptick_7000-1  \
+$BINARY transact link iris1-nft-uptick_7000-1  \
 --src-port nft-transfer --dst-port nft-transfer \
 --order unordered --version ics721-1 --max-retries 3 \
 -d --home $CHAIN_DIR/$RELAYER_DIR
 
 echo "Starting to listen relayer..."
-$BINARY start test1-nft-uptick_7000-1 --home $CHAIN_DIR/$RELAYER_DIR
+$BINARY start iris1-nft-uptick_7000-1 --home $CHAIN_DIR/$RELAYER_DIR
 
