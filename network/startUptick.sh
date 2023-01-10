@@ -13,7 +13,7 @@ LOGLEVEL="info"
 echo "Starting $CHAINID_2 in $CHAIN_DIR..."
 echo "Creating log file at $CHAIN_DIR/$CHAINID_2.log"
 
-$BINARY2 start $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0auptick \
+nohup $BINARY2 start $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0auptick \
 --json-rpc.api eth,txpool,personal,net,debug,web3 \
 --log_format json --home $CHAIN_DIR/$CHAINID_2 \
 --pruning=nothing --grpc.address="0.0.0.0:$GRPCPORT_2" \
