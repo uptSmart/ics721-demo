@@ -3,7 +3,7 @@
   "value": {
     "key": "uptick_7000-1",
     "chain-id": "uptick_7000-1",
-    "rpc-addr": "http://127.0.0.1:26657",
+    "rpc-addr": "http://52.74.190.214:26657",
     "account-prefix": "uptick",
     "keyring-backend": "test",
     "gas-adjustment": 1.2,
