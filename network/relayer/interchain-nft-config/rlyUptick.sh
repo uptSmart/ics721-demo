@@ -37,5 +37,5 @@ $BINARY transact link iris1-nft-uptick_7000-1  \
 -d --home $CHAIN_DIR/$RELAYER_DIR
 
 echo "Starting to listen relayer..."
-$BINARY start iris1-nft-uptick_7000-1 --home $CHAIN_DIR/$RELAYER_DIR
+$BINARY start iris1-nft-uptick_7000-1 --home $CHAIN_DIR/$RELAYER_DIR > $CHAIN_DIR/$RELAYER_DIR/rly.log 2>&1 &
 
