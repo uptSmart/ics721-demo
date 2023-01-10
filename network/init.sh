@@ -63,10 +63,10 @@ if ! mkdir -p $CHAIN_DIR/$CHAINID_2 2>/dev/null; then
 fi
 
 echo "Initializing $CHAINID_1..."
-$BINARY1 init test --home $CHAIN_DIR/$CHAINID_1 --chain-id=$CHAINID_1 --staking-bond-denom=$CHAIN1_BOND_DENOM
+$BINARY1 init test --home $CHAIN_DIR/$CHAINID_1 --chain-id=$CHAINID_1
 
 echo "Initializing $CHAINID_2..."
-$BINARY2 init test --home $CHAIN_DIR/$CHAINID_2 --chain-id=$CHAINID_2 --staking-bond-denom=$CHAIN2_BOND_DENOM
+$BINARY2 init test --home $CHAIN_DIR/$CHAINID_2 --chain-id=$CHAINID_2
 
 echo "Adding genesis accounts..."
 echo $VAL_MNEMONIC_1 | $BINARY1 keys add val1 --home $CHAIN_DIR/$CHAINID_1 --recover --keyring-backend=test
@@ -86,10 +86,10 @@ $BINARY2 add-genesis-account $($BINARY2 --home $CHAIN_DIR/$CHAINID_2 keys show d
 $BINARY2 add-genesis-account $($BINARY2 --home $CHAIN_DIR/$CHAINID_2 keys show rly2 --keyring-backend test -a) 100000000000000000000000000$CHAIN2_BOND_DENOM  --home $CHAIN_DIR/$CHAINID_2
 
 echo "Creating and collecting gentx..."
-$BINARY1 gentx val1 7000000000$CHAIN_BOND_DENOM --home $CHAIN_DIR/$CHAINID_1 --chain-id $CHAINID_1 --keyring-backend test
+$BINARY1 gentx val1 7000000000$CHAIN1_BOND_DENOM --home $CHAIN_DIR/$CHAINID_1 --chain-id $CHAINID_1 --keyring-backend test
 $BINARY1 collect-gentxs --home $CHAIN_DIR/$CHAINID_1
 
-$BINARY2 gentx val2 70000000000000000000000000$CHAIN_BOND_DENOM --home $CHAIN_DIR/$CHAINID_2 --chain-id $CHAINID_2 --keyring-backend test
+$BINARY2 gentx val2 70000000000000000000000000$CHAIN2_BOND_DENOM --home $CHAIN_DIR/$CHAINID_2 --chain-id $CHAINID_2 --keyring-backend test
 $BINARY2 collect-gentxs --home $CHAIN_DIR/$CHAINID_2
 
 echo "Changing defaults and ports in app.toml and config.toml files..."
@@ -118,3 +118,13 @@ sed -i -e 's/swagger = false/swagger = true/g' $CHAIN_DIR/$CHAINID_2/config/app.
 sed -i -e 's#"tcp://0.0.0.0:1317"#"tcp://0.0.0.0:'"$RESTPORT_2"'"#g' $CHAIN_DIR/$CHAINID_2/config/app.toml
 #sed -i -e 's#":8080"#":'"$ROSETTA_2"'"#g' $CHAIN_DIR/$CHAINID_2/config/app.toml
 sed -i -e "$(cat -n $CHAIN_DIR/$CHAINID_2/config/app.toml | grep '\[rosetta\]' -A3 | grep "enable =" | awk '{print $1}')s/enable = true/enable = false/" $CHAIN_DIR/$CHAINID_2/config/app.toml
+
+
+sed -i -e 's/stake/uiris/g' $CHAIN_DIR/$CHAINID_1/config/genesis.json
+
+sed -i -e 's/stake/auptick/g' $CHAIN_DIR/$CHAINID_2/config/genesis.json
+sed -i -e 's/aphoton/auptick/g' $CHAIN_DIR/$CHAINID_2/config/genesis.json
+
+
+
+# sed -i -e 's/stake/uiris/g' $CHAIN_DIR/$CHAINID_1/config/genesis.json

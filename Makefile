@@ -78,7 +78,7 @@ init: kill-dev install
 	./network/hermes/restore-keys.sh
 	./network/hermes/create-conn.sh
 
-init-golang-rly: kill-dev install
+init-golang-rly: kill-dev
 	@echo "Initializing both blockchains..."
 	./network/init.sh
 	./network/start.sh
@@ -89,13 +89,32 @@ start:
 	@echo "Starting up test network"
 	./network/start.sh
 
+
 start-rly:
 	./network/hermes/start.sh
 
 kill-dev:
 	@echo "Killing irisd and removing previous data"
 	-@rm -rf ./data
-	-@killall irisd 2>/dev/null
+	-@killall iris 2>/dev/null
+	-@killall uptickd 2>/dev/null
+
+init-golang-rly-uptick: kill-dev-uptick
+	@echo "Initializing uptickd blockchains..."
+	./network/initUptick.sh
+	./network/startUptick.sh
+	@echo "Initializing relayer..."
+	./network/relayer/interchain-nft-config/rlyUptick.sh
+
+start-uptick:
+	@echo "Starting up test network"
+	./network/start.sh
+
+kill-dev-uptick:
+	@echo "Killing uptickd and removing previous data"
+	-@rm -rf ./data
+	-@killall uptickd 2>/dev/null
+
 
 ########################################
 ### Local validator nodes using docker and docker-compose

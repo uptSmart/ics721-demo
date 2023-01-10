@@ -18,7 +18,9 @@ LOGLEVEL="info"
 
 echo "Starting $CHAINID_1 in $CHAIN_DIR..."
 echo "Creating log file at $CHAIN_DIR/$CHAINID_1.log"
-$BINARY1 start --log_format json --home $CHAIN_DIR/$CHAINID_1 \
+
+$BINARY1 start $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0uiris \
+--log_format json --home $CHAIN_DIR/$CHAINID_1 \
 --pruning=nothing --grpc.address="0.0.0.0:$GRPCPORT_1" \
 --grpc-web.address="0.0.0.0:$GRPCWEB_1" > $CHAIN_DIR/$CHAINID_1.log 2>&1 &
 
@@ -32,12 +34,12 @@ $BINARY2 start $TRACE --log_level $LOGLEVEL --minimum-gas-prices=0auptick \
 --pruning=nothing --grpc.address="0.0.0.0:$GRPCPORT_2" \
 --grpc-web.address="0.0.0.0:$GRPCWEB_2" > $CHAIN_DIR/$CHAINID_2.log 2>&1 &
 
-sleep 8
+# sleep 8
 
-echo "TODO ..."
-uptickd tx bank send uptick103rx84uqa7n4mtmz8f88n4g9m7973rxutrtn7d uptick1p4szayprev5yml5f2l6uq39gyuzamq3j9kqr2a \
-1000000000auptick --chain-id uptick_7000-1 --home ./data/uptick_7000-1 \
---node tcp://localhost:26657 --keyring-backend test -y
+# # echo "TODO ..."
+# uptickd tx bank send uptick1z3kehhtkjzdtd8kaz56srtp9e9wh9ywzwdy4w9 uptick100s3yp8l3atuuvx98jmftttxzy4ee5mg2n79fx \
+# 1000000000auptick --chain-id uptick_7000-1 --home ./data/uptick_7000-1 \
+# --node tcp://localhost:26657 --keyring-backend test -y
 
 
 
